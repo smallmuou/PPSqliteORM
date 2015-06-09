@@ -28,11 +28,11 @@ static NSString* kCellReuseIdentifier = @"kCellReuseIdentifier";
     self.title = @"数据库ORM";
     _tableData = [NSMutableArray array];
     
-    //注册学生表
+    //注册表
     [[PPSqliteORMManager defaultManager] registerClass:[Model class] complete:nil];
     
     
-    //读取学生表
+    //读取表
     [[PPSqliteORMManager defaultManager] read:[Model class] condition:nil complete:^(BOOL successed, id result) {
         //成功
         if (successed) {

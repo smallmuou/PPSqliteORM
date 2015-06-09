@@ -1,6 +1,6 @@
 # PPSqliteORM
 
-PPSqliteORM是对Sqlite数据库的对象化操作，主要表现在对象的写入、对象的读取等.
+PPSqliteORM是对Sqlite数据库的对象化封装，减少SQL语句的操作，实现对象的写入和读取.
 
 ### 1. 前言
 开发PPSqliteORM是源于公司的一个项目，需要用到大数据存储，经过评估之后，决定采用数据库存储方式，当然也就选择了Sqlite，而对于Sqlite而已，FMDB对它已经封装了一层，基于FMDB，你可以不用再去关心sqlite底层的接口，只要关系SQL语法层面的内容，那么我不直接使用FMDB，而是在FMDB的基础上又封装了一层呢，原因有如下几个:
@@ -17,24 +17,76 @@ PPSqliteORM是对Sqlite数据库的对象化操作，主要表现在对象的写
 * 扩展性强
 * 对象化操作
 
-### 3. 如何使用
+### 3. 如何配置
 * 编译framework并导入到你的工程中
 	<pre>
 git clone https://github.com/smallmuou/PPSqliteORM
 open PPSqliteORM.xcworkspace
 利用xcode编译生成PPSqliteORM.framework，并导入到你的工程中
 </pre>
-![image](http://)
+![image](https://raw.githubusercontent.com/smallmuou/PPSqliteORM/master/snapshot-generate-framework.jpg)
 * 导入sqlite动态库
-
+![image](https://raw.githubusercontent.com/smallmuou/PPSqliteORM/master/snapshot-import-sqlite.jpg)
 * 设置-ObjC
 	<pre>
-	XCode -> Build Settings -> Other Linker Flags ，添加-ObjC
+XCode -> Build Settings -> Other Linker Flags ，添加-ObjC
+</pre>
+![image](https://raw.githubusercontent.com/smallmuou/PPSqliteORM/master/snapshot-set-objc.jpg)
+* 引入头文件
+	<pre>
+\#import < PPSqliteORM/PPSqliteORM.h>
 </pre>
 
+### 4. 如何使用
+* 实现PPSqliteORMProtocol
+	<pre>
+//Model.h
+@interface Model : NSObject < PPSqliteORMProtocol>
+...
+@end
+</pre>
 
-### 4. 许可
-该项目遵循MIT许可
+	<pre>
+//Model.m
+@implementation Model
+//指定表名
+PPSqliteORMAsignRegisterName(@"model");
+//指定主键
+PPSqliteORMAsignPrimaryKey(NSTimeIntervalType);
+...
+@end
+</pre>
 
-### 5. 联系
+* 注册类
+	<pre>
+[[PPSqliteORMManager defaultManager] registerClass:[Model class] complete:nil];
+</pre>
+* 写入对象
+	<pre>
+[[PPSqliteORMManager defaultManager] writeObject:model complete:nil];
+</pre>
+* 读取对象
+	<pre>
+[[PPSqliteORMManager defaultManager] read:[Model class] condition:nil complete:^(BOOL successed, id result) {
+	   if (successed) {
+	   //读取成功
+	   } else {
+	   //读取失败
+	   }
+}];
+</pre>
+* 删除对象
+	<pre>
+[[PPSqliteORMManager defaultManager] delete:model complete:nil];
+</pre>
+
+* 更多操作
+	<pre>
+详见PPSqliteORMManager.h头文件
+</pre>
+
+### 5. 许可
+该项目遵循MIT许可，详见LICENSE.
+
+### 6. 联系
 如果你在使用PPSqliteORM中遇到任何问题、或者有任何新的想法，都可以e-mail给我，我的e-mail: lvyexuwenfa100@126.com
