@@ -16,7 +16,7 @@
     return [[self JSONString] sqlValue];
 }
 
-+ (id)objectForSQL:(NSString* )sql {
++ (id)objectForSQL:(NSString* )sql objectType:(NSString* )type {
     if (!sql) return nil;
     return [sql objectFromJSONString];
 }

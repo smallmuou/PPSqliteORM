@@ -32,24 +32,39 @@
 #define TYPEMAP(__rawType, __objcType, __sqliteType) \
 __rawType:@[__objcType, __sqliteType]
 
+//see Objective-C Runtime Programming Guide > Type Encodings.
+
 #define kObjectCTypeToSqliteTypeMap \
 @{\
-    TYPEMAP(@"c",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"C",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"s",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"S",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"i",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"I",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"q",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"B",               @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"f",               @"NSNumber",        @"REAL"),\
-    TYPEMAP(@"d",               @"NSNumber",        @"REAL"),\
-    TYPEMAP(@"NSString",        @"NSString",        @"TEXT"),\
-    TYPEMAP(@"NSMutableString", @"NSMutableString", @"TEXT"),\
-    TYPEMAP(@"NSDate",          @"NSDate",          @"REAL"),\
-    TYPEMAP(@"NSNumber",        @"NSNumber",        @"REAL"),\
-    TYPEMAP(@"NSDictionary",    @"NSDictionary",    @"TEXT"),\
+    TYPEMAP(@"c",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"C",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"s",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"S",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"i",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"I",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"q",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"Q",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"B",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"l",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"L",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"f",                   @"NSNumber",        @"REAL"),\
+    TYPEMAP(@"d",                   @"NSNumber",        @"REAL"),\
+    TYPEMAP(@"CGPoint",             @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"CGSize",              @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"CGRect",              @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"CGVector",            @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"CGAffineTransform",   @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"UIEdgeInsets",        @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"UIOffset",            @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"NSRange",            @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"NSString",            @"NSString",        @"TEXT"),\
+    TYPEMAP(@"NSMutableString",     @"NSMutableString", @"TEXT"),\
+    TYPEMAP(@"NSDate",              @"NSDate",          @"REAL"),\
+    TYPEMAP(@"NSNumber",            @"NSNumber",        @"REAL"),\
+    TYPEMAP(@"NSDictionary",        @"NSDictionary",    @"TEXT"),\
 }
+
+NSString* formateObjectType(const char* objcType);
 
 @interface NSObject (PPSqliteORM) <PPSqliteORMProtocol>
 
@@ -72,8 +87,11 @@ __rawType:@[__objcType, __sqliteType]
 
 /**
  * Convert SQL string to object.
+ *
+ * @param sql 从数据库取出的sql
+ * @param type 数据类型，详见kObjectCTypeToSqliteTypeMap
  */
-+ (id)objectForSQL:(NSString* )sql;
++ (id)objectForSQL:(NSString* )sql objectType:(NSString* )type;
 
 + (id)objectFromSuperObject:(id)object;
 

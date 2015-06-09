@@ -33,7 +33,7 @@
     return [NSString stringWithFormat:@"%f", [self timeIntervalSince1970]];
 }
 
-+ (id)objectForSQL:(NSString* )sql {
++ (id)objectForSQL:(NSString* )sql objectType:(NSString* )type {
     return [NSDate dateWithTimeIntervalSince1970:[sql doubleValue]];
 }
 

@@ -402,9 +402,9 @@
             for (NSString* key in columns) {
                 NSString* varKey = keyMap[key];
                 NSString* className = typeMap[variables[varKey]][0];
-
+                
                 Class cls = NSClassFromString(className);
-                id value = [cls objectForSQL:[rs stringForColumn:key]];
+                id value = [cls objectForSQL:[rs stringForColumn:key] objectType:variables[varKey]];
                 if (cls && value) {
                     [obj setValue:value forKey:varKey];
                 }

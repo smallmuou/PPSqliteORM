@@ -37,9 +37,11 @@
 		E450DB711B26BCAA00532DD8 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB511B26BCAA00532DD8 /* FMDB.h */; };
 		E450DB721B26BCAA00532DD8 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB521B26BCAA00532DD8 /* FMResultSet.h */; };
 		E450DB731B26BCAA00532DD8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB531B26BCAA00532DD8 /* FMResultSet.m */; };
-		E450DB741B26BCAA00532DD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB551B26BCAA00532DD8 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E450DB751B26BCAA00532DD8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB561B26BCAA00532DD8 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E450DB771B26BCCC00532DD8 /* PPSqliteORM.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB761B26BCCC00532DD8 /* PPSqliteORM.h */; };
+		E450DB771B26BCCC00532DD8 /* PPSqliteORM.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB761B26BCCC00532DD8 /* PPSqliteORM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E450DB941B26C66500532DD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB921B26C66500532DD8 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E450DB951B26C66500532DD8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB931B26C66500532DD8 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E450DB9C1B26E85A00532DD8 /* NSValue+SQL.h in Headers */ = {isa = PBXBuildFile; fileRef = E450DB9A1B26E85A00532DD8 /* NSValue+SQL.h */; };
+		E450DB9D1B26E85A00532DD8 /* NSValue+SQL.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB9B1B26E85A00532DD8 /* NSValue+SQL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,10 +88,12 @@
 		E450DB511B26BCAA00532DD8 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		E450DB521B26BCAA00532DD8 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		E450DB531B26BCAA00532DD8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		E450DB551B26BCAA00532DD8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		E450DB561B26BCAA00532DD8 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		E450DB761B26BCCC00532DD8 /* PPSqliteORM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSqliteORM.h; sourceTree = "<group>"; };
 		E450DB781B26BD4800532DD8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E450DB921B26C66500532DD8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		E450DB931B26C66500532DD8 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		E450DB9A1B26E85A00532DD8 /* NSValue+SQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+SQL.h"; sourceTree = "<group>"; };
+		E450DB9B1B26E85A00532DD8 /* NSValue+SQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+SQL.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 				E450DB3A1B26BCAA00532DD8 /* NSNumber+SQL.m */,
 				E450DB3B1B26BCAA00532DD8 /* NSString+SQL.h */,
 				E450DB3C1B26BCAA00532DD8 /* NSString+SQL.m */,
+				E450DB9A1B26E85A00532DD8 /* NSValue+SQL.h */,
+				E450DB9B1B26E85A00532DD8 /* NSValue+SQL.m */,
 			);
 			path = Mappings;
 			sourceTree = "<group>";
@@ -193,8 +199,8 @@
 		E450DB471B26BCAA00532DD8 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E450DB911B26C66500532DD8 /* JSONKit */,
 				E450DB481B26BCAA00532DD8 /* FMDB */,
-				E450DB541B26BCAA00532DD8 /* JSONKit */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -217,11 +223,11 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
-		E450DB541B26BCAA00532DD8 /* JSONKit */ = {
+		E450DB911B26C66500532DD8 /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
-				E450DB551B26BCAA00532DD8 /* JSONKit.h */,
-				E450DB561B26BCAA00532DD8 /* JSONKit.m */,
+				E450DB921B26C66500532DD8 /* JSONKit.h */,
+				E450DB931B26C66500532DD8 /* JSONKit.m */,
 			);
 			path = JSONKit;
 			sourceTree = "<group>";
@@ -235,9 +241,9 @@
 			files = (
 				E450DB641B26BCAA00532DD8 /* PPSqliteORMManager.h in Headers */,
 				E450DB621B26BCAA00532DD8 /* PPSqliteORMError.h in Headers */,
-				E450DB741B26BCAA00532DD8 /* JSONKit.h in Headers */,
 				E450DB661B26BCAA00532DD8 /* PPSqliteORMProtocol.h in Headers */,
 				E450DB771B26BCCC00532DD8 /* PPSqliteORM.h in Headers */,
+				E450DB941B26C66500532DD8 /* JSONKit.h in Headers */,
 				E450DB571B26BCAA00532DD8 /* NSDate+SQL.h in Headers */,
 				E450DB721B26BCAA00532DD8 /* FMResultSet.h in Headers */,
 				E450DB691B26BCAA00532DD8 /* FMDatabase.h in Headers */,
@@ -245,6 +251,7 @@
 				E450DB6B1B26BCAA00532DD8 /* FMDatabaseAdditions.h in Headers */,
 				E450DB711B26BCAA00532DD8 /* FMDB.h in Headers */,
 				E450DB6F1B26BCAA00532DD8 /* FMDatabaseQueue.h in Headers */,
+				E450DB9C1B26E85A00532DD8 /* NSValue+SQL.h in Headers */,
 				E450DB5D1B26BCAA00532DD8 /* NSString+SQL.h in Headers */,
 				E450DB5F1B26BCAA00532DD8 /* NSObject+PPSqliteORM.h in Headers */,
 				E450DB6D1B26BCAA00532DD8 /* FMDatabasePool.h in Headers */,
@@ -358,11 +365,12 @@
 				E450DB731B26BCAA00532DD8 /* FMResultSet.m in Sources */,
 				E450DB6E1B26BCAA00532DD8 /* FMDatabasePool.m in Sources */,
 				E450DB5A1B26BCAA00532DD8 /* NSDictionary+SQL.m in Sources */,
+				E450DB9D1B26E85A00532DD8 /* NSValue+SQL.m in Sources */,
 				E450DB5C1B26BCAA00532DD8 /* NSNumber+SQL.m in Sources */,
 				E450DB631B26BCAA00532DD8 /* PPSqliteORMError.m in Sources */,
 				E450DB651B26BCAA00532DD8 /* PPSqliteORMManager.m in Sources */,
-				E450DB751B26BCAA00532DD8 /* JSONKit.m in Sources */,
 				E450DB6C1B26BCAA00532DD8 /* FMDatabaseAdditions.m in Sources */,
+				E450DB951B26C66500532DD8 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

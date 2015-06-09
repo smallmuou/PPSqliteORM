@@ -11,10 +11,10 @@
 FOUNDATION_EXPORT double PPSqliteORMVersionNumber;
 FOUNDATION_EXPORT const unsigned char PPSqliteORMVersionString[];
 
-#import <PPSqliteORM.framework/JSONKit.h>
-#import <PPSqliteORM.framework/PPSqliteORMError.h>
-#import <PPSqliteORM.framework/PPSqliteORMProtocol.h>
-#import <PPSqliteORM.framework/PPSqliteORMManager.h>
+#import <PPSqliteORM/JSONKit.h>
+#import <PPSqliteORM/PPSqliteORMError.h>
+#import <PPSqliteORM/PPSqliteORMProtocol.h>
+#import <PPSqliteORM/PPSqliteORMManager.h>
 
 
 

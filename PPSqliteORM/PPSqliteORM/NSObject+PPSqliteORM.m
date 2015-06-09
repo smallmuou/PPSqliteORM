@@ -30,6 +30,23 @@
 #import "NSObject+PPSqliteORM.h"
 #import <objc/runtime.h>
 
+NSString* formateObjectType(const char* objcType) {
+    if (!objcType || !strlen(objcType)) return nil;
+    NSString* type = [NSString stringWithCString:objcType encoding:NSUTF8StringEncoding];
+    
+    switch (objcType[0]) {
+        case '@':
+            type = [type substringWithRange:NSMakeRange(2, strlen(objcType)-3)];
+            break;
+        case '{':
+            type = [type substringWithRange:NSMakeRange(1, strchr(objcType, '=')-objcType-1)];
+            break;
+        default:
+            break;
+    }
+    return type;
+}
+
 @implementation NSObject (PPSqliteORM)
 
 + (NSString* )tableName {
@@ -75,18 +92,12 @@ static NSMutableDictionary* variableMapCache;
             for(int i = 0; i < numIvars; i++) {
                 Ivar thisIvar = ivars[i];
                 const char *type = ivar_getTypeEncoding(thisIvar);
-                NSString *stringType =  [NSString stringWithCString:type encoding:NSUTF8StringEncoding];
-                NSString* key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
-                if ([key hasPrefix:@"_"]) {
-                    key = [key substringFromIndex:1];
+                NSString* akey = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
+                if ([akey hasPrefix:@"_"]) {
+                    akey = [akey substringFromIndex:1];
                 }
                 
-                if ([stringType hasPrefix:@"@"]) {
-                    stringType = [stringType substringWithRange:NSMakeRange(2, stringType.length-3)];
-                } else if ([stringType hasPrefix:@"\""]) {
-                    stringType = [stringType substringWithRange:NSMakeRange(1, stringType.length-2)];
-                }
-                map[key] = stringType;
+                map[akey] = formateObjectType(type);
             }
             free(ivars);
         }
@@ -128,7 +139,7 @@ static NSMutableDictionary* lowercaseKeyMapCache;
     return nil;
 }
 
-+ (id)objectForSQL:(NSString* )sql {
++ (id)objectForSQL:(NSString* )sql objectType:(NSString* )type {
     return nil;
 }
 

@@ -108,9 +108,12 @@
     NSDictionary* typeMap = kObjectCTypeToSqliteTypeMap;
 
     NSDictionary* map = [[object class] variableMap];
+    NSLog(@"MAP:%@", map);
     BOOL first = YES;
     for (NSString* key in [map allKeys]) {
+        NSLog(@"===%@, %@, %@", key, map[key], typeMap[map[key]]);
         if (!typeMap[map[key]]) continue;
+        
         NSString* value = [[(NSObject*)object valueForKey:key] sqlValue];
         if (value) {
             if (!first) {
@@ -185,7 +188,13 @@
     if (!condition || [condition isEqualToString:@""]) {
         return [NSString stringWithFormat:@"SELECT * FROM %@", [clazz tableName]];
     } else {
-        return [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@", [clazz tableName], condition];
+        condition = [condition stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSString* upper = [condition uppercaseString];
+        if ([upper hasPrefix:@"ORDER BY"] || [upper hasPrefix:@"GROUP BY"]) {
+            return [NSString stringWithFormat:@"SELECT * FROM %@ %@", [clazz tableName], condition];
+        } else {
+            return [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@", [clazz tableName], condition];
+        }
     }
 }
 

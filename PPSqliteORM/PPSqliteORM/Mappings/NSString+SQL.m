@@ -33,7 +33,7 @@
     return [NSString stringWithFormat:@"'%@'", [self stringByReplacingOccurrencesOfString:@"'" withString:@"''"]];
 }
 
-+ (id)objectForSQL:(NSString* )sql {
++ (id)objectForSQL:(NSString* )sql objectType:(NSString* )type {
     return sql;
 }
 
