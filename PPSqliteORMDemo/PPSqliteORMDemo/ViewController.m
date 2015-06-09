@@ -25,7 +25,7 @@ static NSString* kCellReuseIdentifier = @"kCellReuseIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.title = @"Table";
+    self.title = @"数据库ORM";
     _tableData = [NSMutableArray array];
     
     //注册学生表

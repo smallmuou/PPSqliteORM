@@ -108,10 +108,8 @@
     NSDictionary* typeMap = kObjectCTypeToSqliteTypeMap;
 
     NSDictionary* map = [[object class] variableMap];
-    NSLog(@"MAP:%@", map);
     BOOL first = YES;
     for (NSString* key in [map allKeys]) {
-        NSLog(@"===%@, %@, %@", key, map[key], typeMap[map[key]]);
         if (!typeMap[map[key]]) continue;
         
         NSString* value = [[(NSObject*)object valueForKey:key] sqlValue];
