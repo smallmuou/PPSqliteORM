@@ -17,7 +17,11 @@ PPSqliteORM是对Sqlite数据库的对象化封装，减少SQL语句的操作，
 * 扩展性强
 * 对象化操作
 
-### 3. 如何配置
+### 3. 支持数据类型
+目前已经支持的数据类型有:整型(int,long,NSInteger...)、浮点(float, double)、布尔(BOOL)、字符串(NSString)、日期(NSDate)、字典(NSDictionary)、CGPoint、CGRect、CGSize、NSRange、CGVector、CGAffineTransform、UIEdgeInsets、UIOffset.
+
+
+### 4. 如何配置
 * 编译framework并导入到你的工程中
 	<pre>
 git clone https://github.com/smallmuou/PPSqliteORM
@@ -37,7 +41,7 @@ XCode -> Build Settings -> Other Linker Flags ，添加-ObjC
 \#import < PPSqliteORM/PPSqliteORM.h>
 </pre>
 
-### 4. 如何使用
+### 5. 如何使用
 * 实现PPSqliteORMProtocol
 	<pre>
 //Model.h
@@ -85,8 +89,8 @@ PPSqliteORMAsignPrimaryKey(NSTimeIntervalType);
 详见PPSqliteORMManager.h头文件
 </pre>
 
-### 5. 许可
+### 6. 许可
 该项目遵循MIT许可，详见LICENSE.
 
-### 6. 联系
+### 7. 联系
 如果你在使用PPSqliteORM中遇到任何问题、或者有任何新的想法，都可以e-mail给我，我的e-mail: lvyexuwenfa100@126.com
