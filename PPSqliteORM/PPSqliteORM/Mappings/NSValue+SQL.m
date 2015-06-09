@@ -12,14 +12,6 @@
 
 @implementation NSValue (SQL)
 
-//TYPEMAP(@"CGPoint",             @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"CGSize",              @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"CGRect",              @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"CGVector",            @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"CGAffineTransform",   @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"UIEdgeInsets",        @"NSValue",         @"TEXT"),\
-//TYPEMAP(@"UIOffset",            @"NSValue",         @"TEXT"),\
-
 - (NSString* )sqlValue {
     NSString* type = formateObjectType([self objCType]);
     
