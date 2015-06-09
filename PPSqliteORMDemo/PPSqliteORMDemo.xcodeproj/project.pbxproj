@@ -13,7 +13,6 @@
 		E450DB1C1B26BC4700532DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E450DB1B1B26BC4700532DD8 /* Images.xcassets */; };
 		E450DB1F1B26BC4700532DD8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E450DB1D1B26BC4700532DD8 /* LaunchScreen.xib */; };
 		E450DB2B1B26BC4700532DD8 /* PPSqliteORMDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB2A1B26BC4700532DD8 /* PPSqliteORMDemoTests.m */; };
-		E450DB831B26C49600532DD8 /* PPSqliteORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450DB821B26C49600532DD8 /* PPSqliteORM.framework */; };
 		E450DB971B26C9A800532DD8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E450DB961B26C9A800532DD8 /* ViewController.xib */; };
 		E450DB991B26D00800532DD8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E450DB981B26D00800532DD8 /* libsqlite3.0.dylib */; };
 		E450DBA01B2702AD00532DD8 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = E450DB9F1B2702AD00532DD8 /* Model.m */; };
@@ -44,7 +43,6 @@
 		E450DB241B26BC4700532DD8 /* PPSqliteORMDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPSqliteORMDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E450DB291B26BC4700532DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E450DB2A1B26BC4700532DD8 /* PPSqliteORMDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPSqliteORMDemoTests.m; sourceTree = "<group>"; };
-		E450DB821B26C49600532DD8 /* PPSqliteORM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PPSqliteORM.framework; path = "../../../Library/Developer/Xcode/DerivedData/PPSqliteORM-attleuxosdwnwkdzssuxuafiaifc/Build/Products/Debug-iphonesimulator/PPSqliteORM.framework"; sourceTree = "<group>"; };
 		E450DB961B26C9A800532DD8 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		E450DB981B26D00800532DD8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E450DB9E1B2702AD00532DD8 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E450DB991B26D00800532DD8 /* libsqlite3.0.dylib in Frameworks */,
-				E450DB831B26C49600532DD8 /* PPSqliteORM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				E450DB981B26D00800532DD8 /* libsqlite3.0.dylib */,
-				E450DB821B26C49600532DD8 /* PPSqliteORM.framework */,
 				E450DB0D1B26BC4700532DD8 /* PPSqliteORMDemo */,
 				E450DB271B26BC4700532DD8 /* PPSqliteORMDemoTests */,
 				E450DB0C1B26BC4700532DD8 /* Products */,
@@ -368,11 +364,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PPSqliteORM-attleuxosdwnwkdzssuxuafiaifc/Build/Products/Debug-iphonesimulator",
 				);
 				INFOPLIST_FILE = PPSqliteORMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					"\"PPSqliteORM\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -384,11 +384,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PPSqliteORM-attleuxosdwnwkdzssuxuafiaifc/Build/Products/Debug-iphonesimulator",
 				);
 				INFOPLIST_FILE = PPSqliteORMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					"\"PPSqliteORM\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
