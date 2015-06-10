@@ -2,6 +2,8 @@
 
 PPSqliteORM是对Sqlite数据库的对象化封装，减少SQL语句的操作，实现对象的写入和读取.
 
+**说明：在编译PPSqliteORMDemo之前，请先编译PPSqliteORM，否则会出现PPSqliteORM.h找不到错误.**
+
 ### 1. 前言
 开发PPSqliteORM是源于公司的一个项目，需要用到大数据存储，经过评估之后，决定采用数据库存储方式，当然也就选择了Sqlite，而对于Sqlite而已，FMDB对它已经封装了一层，基于FMDB，你可以不用再去关心sqlite底层的接口，只要关系SQL语法层面的内容，那么我不直接使用FMDB，而是在FMDB的基础上又封装了一层呢，原因有如下几个:
 
