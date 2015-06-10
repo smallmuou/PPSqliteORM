@@ -79,6 +79,16 @@ PPSqliteORMAsignPrimaryKey(NSTimeIntervalType);
 	   }
 }];
 </pre>
+
+	<pre>
+[[PPSqliteORMManager defaultManager] read:[Model class] condition:@"intType > 100 ORDER BY NSTimeIntervalType" complete:^(BOOL successed, id result) {
+	   if (successed) {
+	   //读取成功
+	   } else {
+	   //读取失败
+	   }
+}];
+</pre>
 * 删除对象
 	<pre>
 [[PPSqliteORMManager defaultManager] delete:model complete:nil];
