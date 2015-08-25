@@ -37,18 +37,23 @@ __rawType:@[__objcType, __sqliteType]
 #define kObjectCTypeToSqliteTypeMap \
 @{\
     TYPEMAP(@"c",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"C",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"s",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"S",                   @"NSNumber",        @"INTEGER"),\
     TYPEMAP(@"i",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"I",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"q",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"Q",                   @"NSNumber",        @"INTEGER"),\
-    TYPEMAP(@"B",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"s",                   @"NSNumber",        @"INTEGER"),\
     TYPEMAP(@"l",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"q",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"C",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"I",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"S",                   @"NSNumber",        @"INTEGER"),\
     TYPEMAP(@"L",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"Q",                   @"NSNumber",        @"INTEGER"),\
     TYPEMAP(@"f",                   @"NSNumber",        @"REAL"),\
     TYPEMAP(@"d",                   @"NSNumber",        @"REAL"),\
+    TYPEMAP(@"B",                   @"NSNumber",        @"INTEGER"),\
+    TYPEMAP(@"NSString",            @"NSString",        @"TEXT"),\
+    TYPEMAP(@"NSMutableString",     @"NSMutableString", @"TEXT"),\
+    TYPEMAP(@"NSDate",              @"NSDate",          @"REAL"),\
+    TYPEMAP(@"NSNumber",            @"NSNumber",        @"REAL"),\
+    TYPEMAP(@"NSDictionary",        @"NSDictionary",    @"TEXT"),\
     TYPEMAP(@"CGPoint",             @"NSValue",         @"TEXT"),\
     TYPEMAP(@"CGSize",              @"NSValue",         @"TEXT"),\
     TYPEMAP(@"CGRect",              @"NSValue",         @"TEXT"),\
@@ -56,12 +61,13 @@ __rawType:@[__objcType, __sqliteType]
     TYPEMAP(@"CGAffineTransform",   @"NSValue",         @"TEXT"),\
     TYPEMAP(@"UIEdgeInsets",        @"NSValue",         @"TEXT"),\
     TYPEMAP(@"UIOffset",            @"NSValue",         @"TEXT"),\
-    TYPEMAP(@"NSRange",            @"NSValue",         @"TEXT"),\
+    TYPEMAP(@"NSRange",             @"NSValue",         @"TEXT"),\
     TYPEMAP(@"NSString",            @"NSString",        @"TEXT"),\
     TYPEMAP(@"NSMutableString",     @"NSMutableString", @"TEXT"),\
     TYPEMAP(@"NSDate",              @"NSDate",          @"REAL"),\
     TYPEMAP(@"NSNumber",            @"NSNumber",        @"REAL"),\
     TYPEMAP(@"NSDictionary",        @"NSDictionary",    @"TEXT"),\
+    TYPEMAP(@"NSArray",             @"NSArray",         @"TEXT"),\
 }
 
 NSString* formateObjectType(const char* objcType);
