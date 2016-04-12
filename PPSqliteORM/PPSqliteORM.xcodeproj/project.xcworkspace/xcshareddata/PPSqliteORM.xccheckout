@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F59070D9-673B-42F6-A59E-54ED62397F6B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PPSqliteORM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BF74332FC4D5262005CCFDDC93BD6CF52E24F7EC</key>
+		<string>https://github.com/smallmuou/PPSqliteORM.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PPSqliteORM/PPSqliteORM.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BF74332FC4D5262005CCFDDC93BD6CF52E24F7EC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/smallmuou/PPSqliteORM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BF74332FC4D5262005CCFDDC93BD6CF52E24F7EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BF74332FC4D5262005CCFDDC93BD6CF52E24F7EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PPSqliteORM</string>
+		</dict>
+	</array>
+</dict>
+</plist>
